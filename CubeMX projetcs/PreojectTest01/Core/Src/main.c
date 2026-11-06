@@ -55,6 +55,29 @@ static void MX_GPIO_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+static void flash(uint32_t duration){
+  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
+  HAL_Delay(duration);
+  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
+  HAL_Delay(250);
+}
+static void longf(uint32_t reps){
+  while(reps>0){
+    if(HAL_GPIO_ReadPin(B1_GPIO_Port,B1_Pin)==GPIO_PIN_RESET){
+      flash(1200);
+    }
+      reps -= 1;
+  }
+}
+static void shortf(uint32_t reps){
+  while(reps >0){
+      if(HAL_GPIO_ReadPin(B1_GPIO_Port,B1_Pin)==GPIO_PIN_RESET){
+        flash(400);
+      }
+      reps -=1;
+  }
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -65,7 +88,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+      uint8_t prev = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -74,7 +97,6 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -97,6 +119,34 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
+    /* morse code test
+    shortf(3);
+    longf(3);
+    shortf(3);
+    HAL_Delay(5000);
+    */
+    
+
+    /* PWM test
+    */
+
+    int32_t percent=50;
+    int32_t period=5;
+    uint8_t b1 = HAL_GPIO_ReadPin(B1_GPIO_Port,B1_Pin);
+    if(prev ==1 && b1==0){
+       percent *=-1;
+    }
+    prev = b1;
+    uint32_t truepercent = 50+percent;
+    uint32_t p1 = period*truepercent;
+    uint32_t p2 = 500-p1;
+    HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,GPIO_PIN_SET);
+    HAL_Delay(p1);
+    HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,GPIO_PIN_RESET);
+    HAL_Delay(p2);
+
+
   }
   /* USER CODE END 3 */
 }
@@ -167,7 +217,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LD2_Pin|PWM1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
@@ -183,12 +233,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF7_USART2;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : LD2_Pin */
-  GPIO_InitStruct.Pin = LD2_Pin;
+  /*Configure GPIO pins : LD2_Pin PWM1_Pin */
+  GPIO_InitStruct.Pin = LD2_Pin|PWM1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 

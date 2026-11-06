@@ -2815,6 +2815,7 @@
 	(gr_rect
 		(start 93.5 60.5)
 		(end 126 75)
+		(radius 1)
 		(stroke
 			(width 0.05)
 			(type default)
@@ -2910,6 +2911,14 @@
 		(layer "F.Cu")
 		(net "/CAN_L")
 		(uuid "c68b860a-e8cb-42af-bbea-767a5b6e91c6")
+	)
+	(segment
+		(start 109.375 71)
+		(end 111.5 71)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "Net-(D1-K)")
+		(uuid "f04642ee-7b4c-47a2-bd50-32570a60c9fe")
 	)
 	(segment
 		(start 100.4 69.6)
@@ -3678,14 +3687,6 @@
 		(layer "F.Cu")
 		(net "+5V")
 		(uuid "e8dfa7fc-107e-4874-9eda-c4492a75ff19")
-	)
-	(segment
-		(start 109.375 71)
-		(end 111.5 71)
-		(width 0.2)
-		(layer "F.Cu")
-		(net "Net-(D1-K)")
-		(uuid "f04642ee-7b4c-47a2-bd50-32570a60c9fe")
 	)
 	(zone
 		(net "GND")

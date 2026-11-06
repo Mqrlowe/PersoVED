@@ -10,6 +10,6 @@ this repo contains mainly work for VED
 ~~~
 ### on the VED notes there is the following work :
 ~~~
-    Can bus additionnal work to complete former studies
+	Can bus additionnal work to complete former studies
 	regarding the can bus application in the FS architecture.
 ~~~

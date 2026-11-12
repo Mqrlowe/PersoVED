@@ -3026,7 +3026,7 @@
 				)
 			)
 		)
-		(property "Value" "R_Small"
+		(property "Value" "220ohm"
 			(at 0 1.65 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -4209,6 +4209,14 @@
 		(uuid "3f4f6fde-9e69-4fb4-bad6-a586f272675a")
 	)
 	(via
+		(at 84 80.25)
+		(size 0.6)
+		(drill 0.3)
+		(layers "F.Cu" "B.Cu")
+		(net "GND")
+		(uuid "401f12ed-2acd-452c-b3ab-db9e83fdf699")
+	)
+	(via
 		(at 99.5 79.5)
 		(size 0.6)
 		(drill 0.3)
@@ -4241,6 +4249,14 @@
 		(uuid "47939417-f9db-4f62-a981-e10c4ea9b1c4")
 	)
 	(via
+		(at 84 82.25)
+		(size 0.6)
+		(drill 0.3)
+		(layers "F.Cu" "B.Cu")
+		(net "GND")
+		(uuid "47d2dbe3-876d-443f-be70-aeb88b27502a")
+	)
+	(via
 		(at 94.5 89)
 		(size 0.6)
 		(drill 0.3)
@@ -4255,6 +4271,14 @@
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
 		(uuid "4b9b5a41-3c86-424f-891a-6ee92c6ed10c")
+	)
+	(via
+		(at 84 83.25)
+		(size 0.6)
+		(drill 0.3)
+		(layers "F.Cu" "B.Cu")
+		(net "GND")
+		(uuid "4c2ad71f-f769-440d-96bc-6905555b0aa2")
 	)
 	(via
 		(at 103.5 89)
@@ -4455,6 +4479,14 @@
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
 		(uuid "70b20b72-a1d6-41fe-9e9f-ce7942132361")
+	)
+	(via
+		(at 84 81.25)
+		(size 0.6)
+		(drill 0.3)
+		(layers "F.Cu" "B.Cu")
+		(net "GND")
+		(uuid "7165cd0f-41c7-4d6f-9678-8c3c065cb7a9")
 	)
 	(via
 		(at 92 86.5)

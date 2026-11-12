@@ -3627,7 +3627,7 @@
 				)
 			)
 		)
-		(property "Value" "R_Small"
+		(property "Value" "220ohm"
 			(at 43.434 35.814 90)
 			(show_name no)
 			(do_not_autoplace no)
